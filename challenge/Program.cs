@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿z// See https://aka.ms/new-console-template for more information
 
 using challenge.challengesClass;
 
@@ -8,21 +8,21 @@ do
 {
     Console.WriteLine("Choose an option:");
   
-    Console.WriteLine("[00] - Exit");
-    Console.WriteLine("[01] - Sum two numbers");
-    Console.WriteLine("[02] - Convert meters to millimeters");
+    Console.WriteLine("[00] - Exit"); // ok
+    Console.WriteLine("[01] - Sum two numbers"); // ok
+    Console.WriteLine("[02] - Convert meters to millimeters"); // ok
     Console.WriteLine("[03] - Calculate increase");
     Console.WriteLine("[04] - Calculate discount");
     Console.WriteLine("[05] - Car rental");
-    Console.WriteLine("[06] - Calculate bmi");
+    Console.WriteLine("[06] - Calculate bmi");  // ok
     Console.WriteLine("[07] - ");
-    Console.WriteLine("[08] - Multiplication table for each number");
-    Console.WriteLine("[09] - Multiples of 3 between 0 and 100");
-    Console.WriteLine("[10] - Factorials from 1 to 10");
+    Console.WriteLine("[08] - Multiplication table for each number"); // ok
+    Console.WriteLine("[09] - Multiples of 3 between 0 and 100"); // ok
+    Console.WriteLine("[10] - Factorials from 1 to 10"); // ok
     Console.WriteLine("[11] - Income tax");
-    Console.WriteLine("[12] - Guess number");
+    Console.WriteLine("[12] - Guess number"); // ok
     Console.WriteLine("[13] - Vehicle financing");
-    Console.WriteLine("[14] - Retirement");
+    Console.WriteLine("[14] - Retirement"); // ok
     Console.WriteLine("[15] - Tic-tac-toe");
 
     Console.Write("Option:");
@@ -39,7 +39,7 @@ do
         case 2:
             metersToMillimeter();
             break;
-        case 3:
+        case 3:            
             calculateIncrease();
             break;
         case 4:
@@ -184,12 +184,12 @@ void factorials()
 
 void incomeTax()
 {
-
+    IRPFCalculator.Calculate();
 }
 
 void guessNumber()
 {
-
+    GuessNumber.Play();
 }
 
 void vehicleFinacing()

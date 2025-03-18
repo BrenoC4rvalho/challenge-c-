@@ -12,11 +12,11 @@ namespace challenge.challengesClass
         {
             for (int i = 1; i <= 10; i++)
             {
-                Console.WriteLine($"Fatorial de {i} = {CalculateFatorials(i)}");
+                Console.WriteLine($"Fatorials to {i} = {CalculateFatorials(i)}");
             }
         }
 
-        public static long CalculateFatorials(int n)
+        private static long CalculateFatorials(int n)
         {
             long fatorials = 1;
             for (int i = 1; i <= n; i++)
