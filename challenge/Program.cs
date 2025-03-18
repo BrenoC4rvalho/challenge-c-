@@ -142,6 +142,17 @@ void calculateBmi()
 
 void multiplicationTable()
 {
+    try
+    {
+        Console.Write("Enter a number to see its multiplication table: ");
+        int num = int.Parse(Console.ReadLine());
+        MultiplicationTable.Multiple(num);
+    }
+    catch
+    {
+        Console.WriteLine("Values ​​must be int numbers.");
+    }
+
 
 }
 
