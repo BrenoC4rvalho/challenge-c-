@@ -137,6 +137,22 @@ void carRental()
 
 void calculateBmi() 
 {
+    Console.Write("Enter your weight (kg): ");
+    var weightInput = Console.ReadLine();
+
+    Console.Write("Enter your height (m): ");
+    var heightInput = Console.ReadLine();
+
+    try
+    {
+        double.TryParse(weightInput, out var weight); 
+        double.TryParse(heightInput, out var height);
+        CalculaBmi.Calculate(weight, height);
+    }
+    catch
+    {
+        Console.WriteLine("Invalid input. Please enter numeric values for weight and height.");
+    }
 
 }
 
