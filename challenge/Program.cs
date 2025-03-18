@@ -7,7 +7,7 @@ do
     Console.WriteLine("Choose an option:");
   
     Console.WriteLine("[00] - Exit");
-    Console.WriteLine("[01] - Add two numbers");
+    Console.WriteLine("[01] - Sum two numbers");
     Console.WriteLine("[02] - Convert meters to millimeters");
     Console.WriteLine("[03] - Calculate increase");
     Console.WriteLine("[04] - Calculate discount");
@@ -18,7 +18,7 @@ do
     Console.WriteLine("[09] - Multiples of 3 between 0 and 100");
     Console.WriteLine("[10] - Factorials from 1 to 10");
     Console.WriteLine("[11] - Income tax");
-    Console.WriteLine("[12] - Gess number");
+    Console.WriteLine("[12] - Guess number");
     Console.WriteLine("[13] - Vehicle financing");
     Console.WriteLine("[14] - Retirement");
     Console.WriteLine("[15] - Tic-tac-toe");
@@ -29,36 +29,51 @@ do
     switch (chooseValue)
     {
         case 0:
+            Console.WriteLine("Thank you! Good bye.");
             break;
         case 1:
+            sum();
             break;
         case 2:
+            metersToMillimeter();
             break;
         case 3:
+            calculateIncrease();
             break;
         case 4:
+            calculateDiscount();
             break;
         case 5:
+            carRental();
             break;
         case 6:
+            calculateBmi();
             break;
         case 7:
             break;
         case 8:
+            multiplicationTable();
             break;
         case 9:
+            multiplesOf3();
             break;
         case 10:
+            factorials();
             break;
         case 11:
+            incomeTax();
             break;
         case 12:
+            guessNumber();
             break;
         case 13:
+            vehicleFinacing();
             break;
         case 14:
+            retirement();
             break;
         case 15:
+            ticTacToe();
             break;
     }
 
@@ -68,3 +83,73 @@ do
 
 
 } while (chooseValue != 0);
+
+void sum()
+{
+
+}
+
+void metersToMillimeter()
+{
+
+}
+
+void calculateIncrease()
+{
+
+}
+
+void calculateDiscount()
+{
+
+}
+
+void carRental()
+{
+
+}
+
+void calculateBmi() 
+{
+
+}
+
+void multiplicationTable()
+{
+
+}
+
+void multiplesOf3()
+{
+
+}
+
+void factorials()
+{
+
+}
+
+void incomeTax()
+{
+
+}
+
+void guessNumber()
+{
+
+}
+
+void vehicleFinacing()
+{
+
+}
+
+void retirement()
+{
+
+}
+
+void ticTacToe()
+{
+
+}
