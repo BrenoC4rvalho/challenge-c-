@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using challenge.challengesClass;
+
 int chooseValue = 0;
 
 do
@@ -86,6 +88,20 @@ do
 
 void sum()
 {
+
+    Console.Write("Enter a number:");
+    var value1 = Console.ReadLine();
+    Console.Write("Enter another number:");
+    var value2 = Console.ReadLine();    
+
+    if(int.TryParse(value1, out var intValue1) && int.TryParse(value2, out var intValue2))
+    {
+        Console.WriteLine("Result: " + SumTwoNumbers.Sum(intValue1, intValue2));
+    }
+    else
+    {
+        Console.WriteLine("Values ​​must be int numbers.");
+    }
 
 }
 
