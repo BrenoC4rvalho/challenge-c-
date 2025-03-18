@@ -107,7 +107,17 @@ void sum()
 
 void metersToMillimeter()
 {
-
+    try
+    {
+        Console.Write("Enter the value in meters: ");
+        var value = Console.ReadLine();
+        double.TryParse(value, out var meters);
+        MetersToMilimeters.Convert(meters);
+    } 
+    catch
+    {
+        Console.WriteLine("Values must be numbers.");
+    }
 }
 
 void calculateIncrease()
