@@ -199,7 +199,7 @@ void vehicleFinacing()
 
 void retirement()
 {
-
+    Retirement.Calculate(); 
 }
 
 void ticTacToe()
