@@ -158,12 +158,12 @@ void multiplicationTable()
 
 void multiplesOf3()
 {
-
+    MultiplesOf3.Multiples();
 }
 
 void factorials()
 {
-
+    Fatorials.GenerateFatorials();
 }
 
 void incomeTax()
