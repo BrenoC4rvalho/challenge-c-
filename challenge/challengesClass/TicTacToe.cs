@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace challenge.challengesClass
 {
-    class TicTacToe
+    public class TicTacToe
     {
         static char[,] board = {
-        { '1', '2', '3' },
-        { '4', '5', '6' },
-        { '7', '8', '9' }
-    };
+            { '1', '2', '3' },
+            { '4', '5', '6' },
+            { '7', '8', '9' }
+        };
 
         static char currentPlayer = 'X';
 
-        static void Main()
+        public static void Main()
         {
             int moves = 0;
             bool gameEnded = false;

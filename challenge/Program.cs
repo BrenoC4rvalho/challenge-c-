@@ -210,5 +210,6 @@ void retirement()
 
 void ticTacToe()
 {
+    TicTacToe.Main();
 
 }
