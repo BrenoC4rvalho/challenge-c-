@@ -12,35 +12,36 @@ namespace challenge.challengesClass
         {
             try
             {
-                const double valorDiaria = 95.00;
-                const double valorPorKm = 0.35;
+                const double dailyRate = 95.00;
+                const double costPerKm = 0.35;
 
                 Console.Write("Enter the number of rental days: ");
-                int diasAlugados = int.Parse(Console.ReadLine());
+                int rentalDays = int.Parse(Console.ReadLine());
 
                 Console.Write("Enter the initial mileage (km): ");
-                double kmInicial = double.Parse(Console.ReadLine());
+                double initialKm = double.Parse(Console.ReadLine());
 
                 Console.Write("Enter the final mileage (km): ");
-                double kmFinal = double.Parse(Console.ReadLine());
+                double finalKm = double.Parse(Console.ReadLine());
 
-                if (kmFinal < kmInicial)
+                if (finalKm < initialKm)
                 {
                     Console.WriteLine("Error: Final mileage cannot be less than initial mileage.");
                     return;
                 }
 
-                double kmPercorrido = kmFinal - kmInicial;
-                double custoDiarias = diasAlugados * valorDiaria;
-                double custoKm = kmPercorrido * valorPorKm;
-                double totalPagar = custoDiarias + custoKm;
+                double distanceDriven = finalKm - initialKm;
+                double dailyCost = rentalDays * dailyRate;
+                double distanceCost = distanceDriven * costPerKm;
+                double totalAmount = dailyCost + distanceCost;
 
                 Console.WriteLine("\nRental Summary:");
-                Console.WriteLine($"Days Rented: {diasAlugados}");
-                Console.WriteLine($"Total Kilometers Driven: {kmPercorrido:F2} km");
-                Console.WriteLine($"Cost for Daily Rental: R$ {custoDiarias:F2}");
-                Console.WriteLine($"Cost for Distance Driven: R$ {custoKm:F2}");
-                Console.WriteLine($"Total Amount to Pay: R$ {totalPagar:F2}");
+                Console.WriteLine($"Days Rented: {rentalDays}");
+                Console.WriteLine($"Total Kilometers Driven: {distanceDriven:F2} km");
+                Console.WriteLine($"Cost for Daily Rental: $ {dailyCost:F2}");
+                Console.WriteLine($"Cost for Distance Driven: $ {distanceCost:F2}");
+                Console.WriteLine($"Total Amount to Pay: $ {totalAmount:F2}");
+
             }
             catch
             {
