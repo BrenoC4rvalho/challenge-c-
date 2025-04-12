@@ -8,69 +8,85 @@ namespace challenge.challengesClass
 {
     public class TicTacToe
     {
-        static char[,] board = {
-            { '1', '2', '3' },
-            { '4', '5', '6' },
-            { '7', '8', '9' }
-        };
-
-        static char currentPlayer = 'X';
+        static char[,] board;
+        static char currentPlayer;
+        static int moves;
 
         public static void Main()
         {
-            int moves = 0;
-            bool gameEnded = false;
+            bool jogarNovamente;
 
             do
             {
-                Console.Clear();
-                DrawBoard();
-                Console.WriteLine($"\nJogador {currentPlayer}, escolha uma posição (1-9): ");
-                string input = Console.ReadLine();
+                InicializarJogo();
 
-                if (int.TryParse(input, out int position) && position >= 1 && position <= 9)
+                bool gameEnded = false;
+
+                do
                 {
-                    if (PlaceMark(position))
+                    Console.Clear();
+                    DesenharTabuleiro();
+                    Console.WriteLine($"\nJogador {currentPlayer}, escolha uma posição (1-9): ");
+                    string input = Console.ReadLine();
+
+                    if (int.TryParse(input, out int pos) && pos >= 1 && pos <= 9)
                     {
-                        moves++;
-                        if (CheckWin())
+                        if (MarcarPosicao(pos))
                         {
-                            Console.Clear();
-                            DrawBoard();
-                            Console.WriteLine($"\n🎉 Jogador {currentPlayer} venceu!");
-                            gameEnded = true;
-                        }
-                        else if (moves == 9)
-                        {
-                            Console.Clear();
-                            DrawBoard();
-                            Console.WriteLine("\n🤝 Empate!");
-                            gameEnded = true;
+                            moves++;
+                            if (VerificarVitoria())
+                            {
+                                Console.Clear();
+                                DesenharTabuleiro();
+                                Console.WriteLine($"\n🎉 Jogador {currentPlayer} venceu!");
+                                gameEnded = true;
+                            }
+                            else if (moves == 9)
+                            {
+                                Console.Clear();
+                                DesenharTabuleiro();
+                                Console.WriteLine("\n🤝 Empate!");
+                                gameEnded = true;
+                            }
+                            else
+                            {
+                                currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                            }
                         }
                         else
                         {
-                            currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                            Console.WriteLine("❌ Posição já ocupada. Pressione ENTER.");
+                            Console.ReadLine();
                         }
                     }
                     else
                     {
-                        Console.WriteLine("❌ Essa posição já está ocupada. Pressione ENTER para tentar novamente.");
+                        Console.WriteLine("⚠️ Entrada inválida. Pressione ENTER.");
                         Console.ReadLine();
                     }
-                }
-                else
-                {
-                    Console.WriteLine("⚠️ Entrada inválida. Pressione ENTER para tentar novamente.");
-                    Console.ReadLine();
-                }
 
-            } while (!gameEnded);
+                } while (!gameEnded);
 
-            Console.WriteLine("\nFim de jogo. Pressione qualquer tecla para sair.");
-            Console.ReadKey();
+                Console.WriteLine("\nDeseja jogar novamente? (s/n)");
+                jogarNovamente = Console.ReadLine().Trim().ToLower() == "s";
+
+            } while (jogarNovamente);
+
+            Console.WriteLine("👋 Até a próxima!");
         }
 
-        static void DrawBoard()
+        static void InicializarJogo()
+        {
+            board = new char[3, 3] {
+            { '1', '2', '3' },
+            { '4', '5', '6' },
+            { '7', '8', '9' }
+        };
+            currentPlayer = 'X';
+            moves = 0;
+        }
+
+        static void DesenharTabuleiro()
         {
             Console.WriteLine(" Jogo da Velha\n");
             Console.WriteLine($" {board[0, 0]} | {board[0, 1]} | {board[0, 2]} ");
@@ -80,10 +96,10 @@ namespace challenge.challengesClass
             Console.WriteLine($" {board[2, 0]} | {board[2, 1]} | {board[2, 2]} ");
         }
 
-        static bool PlaceMark(int position)
+        static bool MarcarPosicao(int pos)
         {
-            int row = (position - 1) / 3;
-            int col = (position - 1) % 3;
+            int row = (pos - 1) / 3;
+            int col = (pos - 1) % 3;
 
             if (board[row, col] != 'X' && board[row, col] != 'O')
             {
@@ -93,9 +109,8 @@ namespace challenge.challengesClass
             return false;
         }
 
-        static bool CheckWin()
+        static bool VerificarVitoria()
         {
-            // Linhas e colunas
             for (int i = 0; i < 3; i++)
             {
                 if ((board[i, 0] == currentPlayer &&
@@ -108,7 +123,6 @@ namespace challenge.challengesClass
                     return true;
             }
 
-            // Diagonais
             if ((board[0, 0] == currentPlayer &&
                  board[1, 1] == currentPlayer &&
                  board[2, 2] == currentPlayer) ||
